@@ -36,8 +36,8 @@ public class AddressServiceImpl implements IAddressService {
         DtoCustomer dtoCustomer = new DtoCustomer(); // dtoAddress içindeki customer class oldupu için copy properties ile yapamazsın elle yaptık
         dtoCustomer.setId(address.getCustomer().getId());
         dtoCustomer.setName(address.getCustomer().getName());
-        dtoCustomer.setAddress(dtoAddress);
 
+        // customer içindeki addressi tekrardan setlersek sonsuz döngü olur, yapma!! zaten address elimide var
         dtoAddress.setCustomer(dtoCustomer);
 
         return dtoAddress;
