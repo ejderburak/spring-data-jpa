@@ -13,6 +13,6 @@ public class DtoCustomer {
     private Long id;
     private String name;
 
-    private DtoAddress address;
+    private DtoAddress address; // one-to-one
 
 }

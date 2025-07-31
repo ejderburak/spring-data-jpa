@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rest/api/customer")
+@RequestMapping("/rest/api/customer") // kök adres bu
 public class CustomerControllerImpl implements ICustomerController {
 
     @Autowired
@@ -18,7 +18,7 @@ public class CustomerControllerImpl implements ICustomerController {
 
     @GetMapping(path = "/list/{id}")
     @Override
-    public DtoCustomer findCustomerById(@PathVariable(name = "id")Long id) {
+    public DtoCustomer findCustomerById(@PathVariable(name = "id") Long id) {
         return customerService.findCustomerById(id);
     }
 }

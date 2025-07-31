@@ -18,8 +18,8 @@ public class Address {
     private Long id;
 
     @Column(name = "description")
-    private String descrption;
+    private String description;
 
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address") // ilişkinin sahibi değil, ilişki sahibi customer
     private Customer customer;
 }

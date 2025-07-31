@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements ICustomerService {
             return null;
         }
         Customer customer = optional.get();
-        Address address = customer.getAddress();
+        Address address = optional.get().getAddress();
 
         BeanUtils.copyProperties(customer, dtoCustomer);
         BeanUtils.copyProperties(address, dtoAddress);
