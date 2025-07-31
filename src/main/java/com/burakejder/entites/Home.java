@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "home")
@@ -20,4 +21,9 @@ public class Home {
 
     @Column(name = "price")
     private BigDecimal price;
+
+    @OneToMany
+    private List<Room> room;
+
+
 }
