@@ -1,7 +1,9 @@
 package com.burakejder.services.impl;
 
+import com.burakejder.DTO.DtoCourse;
 import com.burakejder.DTO.DtoStudent;
 import com.burakejder.DTO.DtoStudentIU;
+import com.burakejder.entites.Course;
 import com.burakejder.entites.Student;
 import com.burakejder.repository.StudentRepository;
 import com.burakejder.services.IStudentService;
@@ -54,14 +56,26 @@ public class StudentServiceImpl implements IStudentService {
 
     @Override
     public DtoStudent getStudentById(Integer id) {
-        DtoStudent dto = new DtoStudent();
-        Optional<Student> optional =  studentRepository.findStudentById(id);
-        if(optional.isPresent()){
-            Student dbStudent = optional.get();
 
-            BeanUtils.copyProperties(dbStudent, dto);
+        DtoStudent dtoStudent = new DtoStudent();
+        Optional<Student> optional =  studentRepository.findById(id);
+
+        if(optional.isEmpty()){
+            return null;
         }
-        return dto;
+
+        Student dbStudent = optional.get();
+        BeanUtils.copyProperties(dbStudent, dtoStudent);
+
+        if(dbStudent.getCourses() != null && !dbStudent.getCourses().isEmpty()){
+            for(Course course : dbStudent.getCourses()){
+                DtoCourse dtoCourse = new DtoCourse();
+                BeanUtils.copyProperties(course, dtoCourse);
+
+                dtoStudent.getCourses().add(dtoCourse);
+            }
+        }
+        return dtoStudent;
     }
 
     @Override

@@ -21,4 +21,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query(value = "from Student s WHERE s.id=:studentId")
     Optional<Student> findStudentById(Integer studentId);
+
+
 }

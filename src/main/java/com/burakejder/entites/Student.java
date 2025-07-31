@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,5 +34,10 @@ public class Student {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+
+    @ManyToMany
+    @JoinTable(name = "student_course", joinColumns = @JoinColumn(name ="student"),
+    inverseJoinColumns = @JoinColumn(name = "course_id"))
+    private List<Course> courses;
 
 }
