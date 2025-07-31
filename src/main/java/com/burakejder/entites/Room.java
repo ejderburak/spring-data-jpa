@@ -5,19 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "home")
+@Table(name ="room")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Home {
+public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "price")
-    private BigDecimal price;
+    @Column(name = "name")
+    private String name;
 }
+
