@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.burakejder"}) // rest controller vs bean leri tanısın
 @EnableJpaRepositories(basePackages = {"com.burakejder"})
-@PropertySource(value = "classpath:app.properties") // bunun sayesinde ismi değişmiş şekilde uyguluma yağa kaldkı
+// @PropertySource(value = "classpath:application.properties") // bunun sayesinde ismi değişmiş şekilde uyguluma yağa kaldkı
 public class SpringDataJpaApplication {
 
 	public static void main(String[] args) {

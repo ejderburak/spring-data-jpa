@@ -29,6 +29,7 @@ public class HomeServiceImpl implements IHomeService {
 
         Optional<Home> optional = homeRepository.findById(id);
         if (optional.isEmpty()) {
+            // home bulamazsa nolcak???? throw exception olması lazım burada yoksa patlarsın
             return null;
         }
 
