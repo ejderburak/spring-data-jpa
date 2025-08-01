@@ -36,7 +36,7 @@ public class Student {
     private Date dateOfBirth;
 
     @ManyToMany
-    @JoinTable(name = "student_course", joinColumns = @JoinColumn(name ="student"),
+    @JoinTable(name = "student_course", joinColumns = @JoinColumn(name ="student_id"),
     inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courses;
 
